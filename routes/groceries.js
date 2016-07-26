@@ -57,6 +57,7 @@ router.post('/add', jsonParser, function(request, response){
     })
   })
 });
+
 router.put('/modify', jsonParser, function(request, response){
   var client = new pg.Client(config);
   var id = request.body.id;
@@ -80,7 +81,6 @@ router.put('/modify', jsonParser, function(request, response){
     })
   })
 });
-
 
 router.delete('/remove/:id', function(request, response){
   var client = new pg.Client(config);
