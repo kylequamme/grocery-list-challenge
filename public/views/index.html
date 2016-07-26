@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="groceryApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Grocery List</title>
+    <script src="../vendors/angular/angular.min.js" charset="utf-8"></script>
+    <script src="../scripts/client.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="../vendors/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../styles/stylesheet.css">
+  </head>
+
+  <body ng-controller="MainController as main">
+    <header>
+        <h1>Grocery List</h1>
+    </header>
+    <main>
+      <form>
+        <input type="text" ng-model="main.tempName" placeholder="Grocery Item"></input>
+        <input type="number" ng-model="main.tempQty"></input>
+        <button class="btn btn-md btn-success" ng-click="main.addGrocery()">Submit</button>
+        <span>{{main.errorMessage}}</span>
+      </form>
+      <div>
+        <h2>The List:</h2>
+        <ul ng-repeat="grocery in main.groceries track by grocery.id">
+          <li>
+            <h3 ng-hide="main.edit[grocery.id]">
+              <span class="groceryItem">{{grocery.name}} QTY: {{grocery.qty}}</span>
+              <button class="btn btn-sm btn-primary" ng-click="main.editGrocery(grocery.id,grocery.name,grocery.qty)">Edit</button>
+            </h3>
+            <h3 ng-show="main.edit[grocery.id]">
+              <span class="editGroceryItem">
+                <input type="text" ng-model="main.editName[grocery.id]" placeholder="Grocery Item"></input>
+                <input type="number" ng-model="main.editQty[grocery.id]"></input>
+                <button class="btn btn-sm btn-success" ng-click="main.saveGrocery(grocery.id)">Save</button>
+                <button class="btn btn-sm btn-danger" ng-click="main.removeGrocery(grocery.id)">Delete</button>
+              </span>
+            </h3>
+          </li>
+        </ul>
+      </div>
+    </main>
+
+  </body>
+</html>

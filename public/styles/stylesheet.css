@@ -1,0 +1,16 @@
+body{
+	padding: 0 25px;
+}
+header{
+	text-align: center;
+}
+form{
+	margin: 10px 0;
+	line-height: 2em;
+}
+li{
+	line-height: 2em;
+}
+.groceryItem{
+	margin-right: 5px;
+}
