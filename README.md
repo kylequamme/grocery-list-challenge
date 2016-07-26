@@ -5,5 +5,5 @@
  * create a table a called 'groceries'
  * create 3 columns in the 'groceries' table:
   * id as the primary key
-  * name of type text
-  * qty of type integer
+  * name with a type of text
+  * qty with a type of integer
